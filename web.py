@@ -3,14 +3,17 @@ import functions
 
 tasks = functions.get_tasks()
 
+st.set_page_config(layout="wide")
+
 def add_task():
     task = st.session_state["new_task"] + "\n"
     tasks.append(task)
     functions.write_tasks(tasks)
 
 
-st.title("My Task App")
-st.write("This app is to increase productivity")
+st.title("My To-Do List App")
+st.write("This app is to increase <b>productivity</b>",
+         unsafe_allow_html=True)
 st.subheader("Tasks: ")
 
 for index, task in enumerate(tasks):
